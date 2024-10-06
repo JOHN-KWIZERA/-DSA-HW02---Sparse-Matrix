@@ -1,115 +1,117 @@
-# Sparse Matrix Operations
+***Sparse Matrix***
 
-This project implements sparse matrix operations such as addition, subtraction, and multiplication using custom data structures to optimize memory usage and runtime.
+**Table of Contents**
 
-## Features
+* Overview
+* Features
+* Prerequisites
+* Installation
+* Repository Structure
+* Usage
+ Running the Application
+ Matrix Operations
+* Testing
+ Subtraction Test
+ Multiplication Test
+* Contributing
+* License
+* Contributor
 
-- Load two sparse matrices from input files
-- Perform matrix addition, subtraction, and multiplication
-- Save the result matrix to an output file in the same format
-- Handle input variations such as whitespaces and invalid formats
-- Implement custom exception handling for incorrect input formats
+**Overview**
 
-## Requirements
+The Sparse Matrix Operations application is a JavaScript program designed to handle large sparse matrices efficiently. It reads sparse matrices from input files, performs operations like addition, subtraction, and multiplication, and outputs the results to specified files. The application includes built-in performance tracking and robust error handling.
 
-- Python 3.6+
-- No external libraries required
+**Features**
 
-## Project Structure
+* Sparse Matrix Handling: Efficiently reads and processes sparse matrices from files.
+* Matrix Operations: Supports addition, subtraction, and multiplication of matrices.
+* Performance Metrics: Tracks and logs execution time.
+* Error Handling: Robust error handling for file operations and invalid inputs.
 
-```
-/dsa/sparse_matrix/
-    ├── code/
-    │   └── src/
-    │       └── spmatrix.py    # Main source code
-    ├── sample_inputs/         # Input files with sparse matrices
-    ├── sample_outputs/        # Generated output files
-    └── README.md              # This file
-```
+**Prerequisites**
 
-## Input File Format
+Ensure you have the following before starting:
 
-Each sparse matrix input file should follow this format:
+* Node.js (version 12.x or higher)
 
-1. The first line specifies the number of rows (`rows=X`)
-2. The second line specifies the number of columns (`cols=Y`)
-3. Each subsequent line represents a non-zero element in the matrix in the format `(row, column, value)`
+**Installation**
 
-Example:
+Clone the repository:
+git clone https://github.com/Peace3B/sparse_matrix.git
 
-```
-rows=8433
-cols=3180
-(0, 381, -694)
-(0, 128, -838)
-(0, 639, 857)
-```
+cd sparse_matrix
 
-## Usage
+**Repository Structure**
 
-### Command-line Execution
+When you clone the repository, you'll find the following directories and files:
 
-Navigate to the `src/` folder and use the following command:
+* results/: This directory will be generated upon running the code and will contain the output files.
+* sample_inputs/: Contains sample input files to be processed.
+* classes/CustomArray.js: Custom array class for storing matrix data.
+* operations/addMatrices.js: Script for matrix addition operation.
+* operations/subtractMatrices.js: Script for matrix subtraction operation.
+* operations/multiplyMatrices.js: Script for matrix multiplication operation.
+* utils/fileUtils.js: Utility script for reading and writing matrix files.
+* utils/timeTracker.js: Script for tracking execution time.
+* errorHandlers/errorHandler.js: Script for handling errors.
+* main.js: Main script that runs the application and handles user input.
 
-```bash
-python spmatrix.py <operation> <input_file_1> <input_file_2> <output_file>
-```
+**Usage**
 
-- `<operation>`: Specify one of the following: `add`, `subtract`, or `multiply`
-- `<input_file_1>`: Path to the first matrix input file
-- `<input_file_2>`: Path to the second matrix input file
-- `<output_file>`: Path where the result matrix will be saved
+Running the Application
 
-Example:
+To run the application, navigate to the project directory in your terminal and execute the application by passing the operation and paths to the input files:
 
-```bash
-python spmatrix.py add ../sample_inputs/matrix1.txt ../sample_inputs/matrix2.txt ../sample_outputs/result.txt
-```
+node main.js <operation> <path_to_matrix_file_1> <path_to_matrix_file_2>.
 
-This command will add the matrices in `matrix1.txt` and `matrix2.txt`, and save the result to `result.txt`.
+For example, to add two matrices:
 
-## Code Structure
+node main.js subtract sample_input_for_students/easy_sample_03_2.txt sample_input_for_students/easy_sample_04_2.txt
 
-- `SparseMatrix` Class: Handles the storage and manipulation of the sparse matrix
-- `load_matrix`: Loads a matrix from a file
-- `save_matrix`: Saves the result matrix to a file
-- `add`: Adds two sparse matrices
-- `subtract`: Subtracts the second matrix from the first
-- `multiply`: Multiplies two sparse matrices
+This command processes the matrices, performs the specified operation, and saves the result in the results directory.
 
-## Example Code Usage
-
-```python
-matrix1 = SparseMatrix('matrix1.txt')  # Load first matrix from file
-matrix2 = SparseMatrix('matrix2.txt')  # Load second matrix from file
-
-# Perform matrix addition
-result_matrix = matrix1.add(matrix2)
-
-# Save the result to a file
-result_matrix.save_matrix('result.txt')
-```
-
-## Error Handling
-
-The program handles:
-
-- Invalid format: Raises `ValueError` if the input file does not conform to the expected format
-- Dimension mismatches: Raises `ValueError` if the matrices cannot be added, subtracted, or multiplied due to incompatible dimensions
+When run, you will see performance metrics displayed in the terminal:
 
 
-## Contributing
 
-1. Fork this repository
-2. Create a new branch (`git checkout -b feature-branch`)
-3. Make your changes and commit them (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin feature-branch`)
-5. Create a new Pull Request
+**Matrix Operations** 
 
-## License
+* Subtract: Subtract two matrices and outputs the result.
+node main.js subtract <path_to_matrix_file_1> <path_to_matrix_file_2>
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+* Subtraction: Subtracts the second matrix from the first and outputs the result.
+node main.js subtract <path_to_matrix_file_1> <path_to_matrix_file_2>
 
-## Contact
+* Multiplication: Multiplies two matrices and outputs the result. Ensure the matrices are compatible for multiplication.
+node main.js multiply <path_to_matrix_file_1> <path_to_matrix_file_2>
 
-For any questions or issues, feel free to reach out.
+**Testing** 
+
+* Addition Test
+
+To test the addition operation, you can run the following command:
+
+node main.js add sample_input_for_students/easy_sample_01_1.txt sample_inputs/easy_sample_01_1.txt
+
+This command will perform the addition of easy_sample_01_2.txt to easy_sample_01_1.txt and save the result in the results directory.
+
+* Multiplication Test
+To test the multiplication operation, you can run the following command:
+
+node main.js multiply sample_inputs/easy_sample_02_3.txt sample_inputs/easy_sample_02_1.txt
+
+Ensure that the matrices are compatible for multiplication, where the number of columns in the first matrix matches the number of rows in the second matrix.
+
+This command will perform the multiplication of easy_sample_02_3.txt and easy_sample_02_1.txt and save the result in the results directory.
+
+**Contributing**
+
+Contributions are welcome. Please fork the repository, create a feature branch, and submit a pull request for review.
+
+**Contributors**
+
+* Peace KEZA
+
+  
+
+HAPPY CODING.💕💕
