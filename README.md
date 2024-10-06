@@ -37,7 +37,7 @@ Ensure you have the following before starting:
 **Installation**
 
 Clone the repository:
-git clone https://github.com/Peace3B/sparse_matrix.git
+git clone https://github.com/JOHN-KWIZERA/sparse_matrix.git
 
 cd sparse_matrix
 
@@ -110,8 +110,8 @@ Contributions are welcome. Please fork the repository, create a feature branch, 
 
 **Contributors**
 
-* Peace KEZA
+* John Kwizera
 
   
 
-HAPPY CODING.💕💕
+HAPPY CODING.
